@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="streakApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Monthly Streak Sheet - 1.00</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/ng/streakApp.js"></script>
+</head>
+<body ng-controller="StreakController">
+
+<table>
+    <thead>
+    <tr>
+    <td></td>
+    <td>
+        Activity
+    </td>
+    <td ng-repeat="i in daysInMonth">
+        {{i}}
+    </td>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="activity in activities">
+        <td>
+            <div ng-click="removeActivity(activity)">DELETE</div>
+        </td>
+        <td>
+            <input type="text" value="{{activity.name}}">
+        </td>
+        <td ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]">
+            <input  type="checkbox" value="{{activity.days[i]}}">
+        </td>
+
+    </tr>
+
+    </tbody>
+</table>
+
+<input type="button" ng-click="addActivity()" value="Add new Activity">
+
+</body>
+</html>
